@@ -1,0 +1,20 @@
+Запустить окружение source venv/bin/activate
+
+Получается, что cуществует сервис и опции. Опции нужны для того чтобы настроить браузер в
+котором будет происходить работы, например: разрешение, режимы, работу куки и так далее.
+А вот с сервисом не так все однозначно, его можно определить самому, если явно указывать путь по которому
+хранится chromedriver
+
+    # from selenium import webdriver
+    # chromedriver_path = "/Users/ilya/.wdm/drivers/chromedriver/mac64/119.0.6045.105/chromedriver-mac-arm64/chromedriver"
+    Создаем сервис для ChromeDriver, указывая путь к ChromeDriver
+    # service = webdriver.chrome.service.Service(chromedriver_path)
+    driver = webdriver.Chrome()
+
+Однако, запустить браузер можно и без этого, по какой-то причине webdriver сам находит место, в котором расположен
+chromedriver
+
+    # from selenium import webdriver
+    # driver = webdriver.Chrome()
+
+Нужно найти системный путь и файл, который запускается этим скриптом, и сам chromedriver (в папке selenium у окружения их нет)
